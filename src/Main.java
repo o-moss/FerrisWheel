@@ -11,17 +11,14 @@ public class Main {
             queueFerrisWheel.offer(generatedList.get(i));
         }
         while (!queueFerrisWheel.isEmpty()) {
-            if (queueFerrisWheel.peek() != null) {
-                Person client = queueFerrisWheel.poll();
-                client.setNumberOfTickets(client.getNumberOfTickets() - 1);
-                System.out.println("Посетитель " + client.getName() + " " + client.getSurname() +
-                        " прокатился на аттракционе. Осталось билетов: " + client.getNumberOfTickets());
-                if (client.getNumberOfTickets() > 0) {
-                    queueFerrisWheel.offer(client);
-                }
+            Person client = queueFerrisWheel.poll();
+            client.setNumberOfTickets(client.getNumberOfTickets() - 1);
+            System.out.println("Посетитель " + client.getName() + " " + client.getSurname() +
+                    " прокатился на аттракционе. Осталось билетов: " + client.getNumberOfTickets());
+            if (client.getNumberOfTickets() > 0) {
+                queueFerrisWheel.offer(client);
             }
         }
-
     }
 
     public static List<Person> generateClients() {
